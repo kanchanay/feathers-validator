@@ -270,13 +270,13 @@ function generateEnumValidatorFunction(params) {
 }
 
 function generateRequiredValidatorFunction() {
-    return function (key, value) {
-        if (value || (typeof value == "boolean")) return {valid: true}
-        else return {
-            valid: false,
-            error: 'The ' + key + ' field is required.'
-        }
-    }
+  return function (key, value) {
+      if (value || (typeof value == "boolean") || (String(value).length > 0)) return {valid: true}
+      else return {
+          valid: false,
+          error: 'The ' + key + ' field is required.'
+      }
+  }
 }
 
 
